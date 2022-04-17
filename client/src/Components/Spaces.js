@@ -82,7 +82,7 @@ let user,username;
     const data = {spaceName,admin,members}
     console.log(data);
     if(members.length >= 2){
-    await axios.post('/create-space',data,{headers:{"Content-Type" : "application/json"}})
+    await axios.post('https://quesly-backend.herokuapp.com/create-space',data,{headers:{"Content-Type" : "application/json"}})
     .then((response) => {
       console.log(response);
       alert("Space Created Successfully!");
@@ -103,7 +103,7 @@ let user,username;
 
   const getSpaces = async () => {
     const data = user ;
-    await axios.post('/get-users-spaces',data,{headers:{"Content-Type" : "application/json"}})
+    await axios.post('https://quesly-backend.herokuapp.com/get-users-spaces',data,{headers:{"Content-Type" : "application/json"}})
     .then((response) => {
       console.log(response);
       setLoading(false);

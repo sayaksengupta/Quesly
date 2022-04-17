@@ -40,7 +40,7 @@ function Business() {
     
 
     const fetchBusinessQueries = async() => {
-        await axios.get('/get-business-queries')
+        await axios.get('https://quesly-backend.herokuapp.com/get-business-queries')
         .then((response) => {
             console.log(response);
             setBusinessQueries(response.data);
@@ -68,7 +68,7 @@ function Business() {
         const data = { question, category, username, profilePic };
   
         await axios
-          .post("/post-question", data, {
+          .post("https://quesly-backend.herokuapp.com/post-question", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {
@@ -85,7 +85,7 @@ function Business() {
     };
     const getUser = async () => {
       await axios
-        .post("/getUser", {
+        .post("https://quesly-backend.herokuapp.com/getUser", {
           username : username
         })
         .then((response) => {
@@ -114,7 +114,7 @@ function Business() {
       }
     
       const submitAnswer = async (e) => {
-        await axios.post('/post-answer',userAnswer,{headers:{"Content-Type" : "application/json"}})
+        await axios.post('https://quesly-backend.herokuapp.com/post-answer',userAnswer,{headers:{"Content-Type" : "application/json"}})
         .then((response) => {
           console.log(response);
           setLoadAnswers(!loadAnswers);
@@ -139,7 +139,7 @@ function Business() {
       const DeleteAnswer = async (aid) => {
         const data = { aid };
         await axios
-          .post("/delete-answer", data, {
+          .post("https://quesly-backend.herokuapp.com/delete-answer", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {
@@ -160,7 +160,7 @@ function Business() {
         // setUpvoteIndex((upvoteIndex) => [...upvoteIndex, index]);
     
         await axios
-          .post("/post-upvote", data, {
+          .post("https://quesly-backend.herokuapp.com/post-upvote", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {
@@ -181,7 +181,7 @@ function Business() {
         // setUpvoteIndex((upvoteIndex) => [...upvoteIndex, index]);
     
         await axios
-          .post("/post-answer-upvote", data, {
+          .post("https://quesly-backend.herokuapp.com/post-answer-upvote", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {
@@ -202,7 +202,7 @@ function Business() {
         // setUpvoteIndex((upvoteIndex) => [...upvoteIndex, index]);
     
         await axios
-          .post("/remove-answer-upvote", data, {
+          .post("https://quesly-backend.herokuapp.com/remove-answer-upvote", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {
@@ -223,7 +223,7 @@ function Business() {
         // setUpvoteIndex((upvoteIndex) => [...upvoteIndex, index]);
     
         await axios
-          .post("/post-downvote", data, {
+          .post("https://quesly-backend.herokuapp.com/post-downvote", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {
@@ -244,7 +244,7 @@ function Business() {
         // setUpvoteIndex((upvoteIndex) => [...upvoteIndex, index]);
     
         await axios
-          .post("/post-answer-downvote", data, {
+          .post("https://quesly-backend.herokuapp.com/post-answer-downvote", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {
@@ -265,7 +265,7 @@ function Business() {
         // setUpvoteIndex((upvoteIndex) => [...upvoteIndex, index]);
     
         await axios
-          .post("/remove-answer-downvote", data, {
+          .post("https://quesly-backend.herokuapp.com/remove-answer-downvote", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {
@@ -551,7 +551,7 @@ function Business() {
       const followUser = async (user, follow_user) => {
         const data = { user, follow_user };
         await axios
-          .post("/follow-user", data, {
+          .post("https://quesly-backend.herokuapp.com/follow-user", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {
@@ -567,7 +567,7 @@ function Business() {
       const unfollowUser = async (user, unfollow_user) => {
         const data = { user, unfollow_user };
         await axios
-          .post("/unfollow-user", data, {
+          .post("https://quesly-backend.herokuapp.com/unfollow-user", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {

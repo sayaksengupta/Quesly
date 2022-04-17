@@ -81,7 +81,7 @@ function Registration() {
     try {
       const data = { ...user, username : user.username.toLowerCase() , category: category, profilePic: url };
       await axios
-        .post("/register", data, {
+        .post("https://quesly-backend.herokuapp.com/register", data, {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => {

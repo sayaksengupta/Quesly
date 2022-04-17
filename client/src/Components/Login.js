@@ -96,7 +96,7 @@ export default function Login() {
     const data = { email, password };
 
     await axios
-      .post("/login", data, { headers: { "Content-Type": "application/json" } })
+      .post("https://quesly-backend.herokuapp.com/login", data, { headers: { "Content-Type": "application/json" } })
       .then((response) => {
         alert("Logged in Successfully!");
         console.log(response);

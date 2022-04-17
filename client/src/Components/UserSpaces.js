@@ -45,7 +45,7 @@ function UserSpaces() {
   const getSpaces = async () => {
     const data = location.state.LogUser;
     await axios
-      .post("/get-users-spaces", data, {
+      .post("https://quesly-backend.herokuapp.com/get-users-spaces", data, {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {
@@ -66,7 +66,7 @@ function UserSpaces() {
     let username = location.state.LogUser.username;
     let data = { search, username };
     await axios
-      .post("/search-space", data, {
+      .post("https://quesly-backend.herokuapp.com/search-space", data, {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {
@@ -94,7 +94,7 @@ function UserSpaces() {
     console.log(data);
     if (message) {
       await axios
-        .post("/send-message", data, {
+        .post("https://quesly-backend.herokuapp.com/send-message", data, {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => {

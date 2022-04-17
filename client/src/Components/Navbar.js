@@ -20,7 +20,7 @@ function Navbar(props) {
 
   const getUser = async () => {
     await axios
-      .post("/getUser", {
+      .post("https://quesly-backend.herokuapp.com/getUser", {
         username : username
       })
       .then((response) => {
@@ -172,7 +172,7 @@ function Navbar(props) {
                       const data = {search};
                       if(search){
                       setSearchToggle(false);
-                      await axios.post('/search-user',data,{headers:{"Content-Type" : "application/json"}})
+                      await axios.post('https://quesly-backend.herokuapp.com/search-user',data,{headers:{"Content-Type" : "application/json"}})
                       .then((response) => {
                         console.log(response);
                         setSearchResults(response.data);

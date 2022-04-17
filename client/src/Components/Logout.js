@@ -12,7 +12,7 @@ function Logout() {
   const logOut = async () => {
     try {
       const res = await axios
-        .get("/logout", {
+        .get("https://quesly-backend.herokuapp.com/logout", {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",

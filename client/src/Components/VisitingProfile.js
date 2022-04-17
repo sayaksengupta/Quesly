@@ -23,7 +23,7 @@ function VisitingProfile() {
     const getVisitingUser = async () => {
         const data = location.state.visitingUser ;
         await axios
-          .post("/get-visiting-user",data,{headers:{"Content-Type" : "application/json"}})
+          .post("https://quesly-backend.herokuapp.com/get-visiting-user",data,{headers:{"Content-Type" : "application/json"}})
           .then((response) => {
             setVisitingUser(response.data);
             setLoading(false);
@@ -36,7 +36,7 @@ function VisitingProfile() {
 
       const getUser = async () => {
         await axios
-          .get("/getUser")
+          .get("https://quesly-backend.herokuapp.com/getUser")
           .then((response) => {
             setUser(response.data);
             console.log(response.data);
@@ -51,7 +51,7 @@ function VisitingProfile() {
               username : visitingUser.username
           }
         await axios
-          .post("/getQueries-by-user",data,{headers:{"Content-Type" : "application/json"}})
+          .post("https://quesly-backend.herokuapp.com/getQueries-by-user",data,{headers:{"Content-Type" : "application/json"}})
           .then((response) => {
             setUserQueries(response.data);
             setCallApi(!callApi);
@@ -73,7 +73,7 @@ function VisitingProfile() {
     const followUser = async (user, follow_user) => {
         const data = { user, follow_user };
         await axios
-          .post("/follow-user", data, {
+          .post("https://quesly-backend.herokuapp.com/follow-user", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {
@@ -89,7 +89,7 @@ function VisitingProfile() {
       const unfollowUser = async (user, unfollow_user) => {
         const data = { user, unfollow_user };
         await axios
-          .post("/unfollow-user", data, {
+          .post("https://quesly-backend.herokuapp.com/unfollow-user", data, {
             headers: { "Content-Type": "application/json" },
           })
           .then((response) => {

@@ -29,7 +29,7 @@ function Profile() {
 
   const getUser = async () => {
     await axios
-      .post("/getUser", {
+      .post("https://quesly-backend.herokuapp.com/getUser", {
         username: username,
       })
       .then((response) => {
@@ -47,7 +47,7 @@ function Profile() {
       username: user.username,
     };
     await axios
-      .post("/getQueries-by-user", data, {
+      .post("https://quesly-backend.herokuapp.com/getQueries-by-user", data, {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {
@@ -81,7 +81,7 @@ function Profile() {
         alert("Profile Picture Changed Successfully!");
         getDownloadURL(ref(storage, `profileImages/${profileImg.name}`)).then(
           (url) => {
-            axios.patch(`/updateUser/${user._id}`, {
+            axios.patch(`https://quesly-backend.herokuapp.com/updateUser/${user._id}`, {
               profilePic: url,
             })
               .then((res) => {
