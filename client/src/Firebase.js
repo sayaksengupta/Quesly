@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 const credCheck = async function (res) {
   const result = await axios
-    .post("/login-with-google", {
+    .post("https://quesly-backend.herokuapp.com/login-with-google", {
       email: res.user.email,
     })
     .catch((e) => {
