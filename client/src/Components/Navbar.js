@@ -20,7 +20,7 @@ function Navbar(props) {
 
   const getUser = async () => {
     await axios
-      .post("https://quesly-backend.herokuapp.com/getUser", {
+      .post("/getUser", {
         username : username
       })
       .then((response) => {

@@ -35,6 +35,7 @@ function Home() {
 
   let name, value;
 
+
   const User = JSON.parse(localStorage.getItem("user_info")) || JSON.parse(sessionStorage.getItem("user_info"));
 
 
@@ -86,8 +87,11 @@ function Home() {
   };
 
   const loadPosts = async () => {
+    if(User){
     await axios
-      .get("https://quesly-backend.herokuapp.com/getQueries-for-user")
+      .post("/getQueries-for-user", {
+        username : User.username
+      })
       .then((response) => {
         setPosts(response.data);
 
@@ -101,6 +105,9 @@ function Home() {
       .catch((e) => {
         console.log(e);
       });
+    }else{
+      history.push('/login');
+    }
   };
 
   console.log(answers);
@@ -134,8 +141,9 @@ function Home() {
   console.log(userAnswer);
 
   const getUser = async () => {
+    if(User){
     await axios
-      .post("https://quesly-backend.herokuapp.com/getUser", {
+      .post("/getUser", {
         username : User.username
       })
       .then((response) => {
@@ -146,6 +154,7 @@ function Home() {
       .catch((e) => {
         console.log(e);
       });
+    }
   };
 
   const showAnswerSection = async (index, id) => {

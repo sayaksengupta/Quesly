@@ -174,17 +174,20 @@ router.get("/getUsers", async (req, res) => {
   }
 });
 
-router.get("/getQueries-for-user", auth, async (req, res) => {
+router.post("/getQueries-for-user", async (req, res) => {
   try {
-    console.log(req.rootUser.category);
+    
+    const {username} = req.body;
+
+    const user = await User.findOne({ username : username});
 
     const categoryQueries = await Queries.find({
       $or: [
-        { category: req.rootUser.category[0] },
-        { category: req.rootUser.category[1] },
-        { category: req.rootUser.category[2] },
-        { category: req.rootUser.category[3] },
-        { category: req.rootUser.category[4] },
+        { category: user.category[0] },
+        { category: user.category[1] },
+        { category: user.category[2] },
+        { category: user.category[3] },
+        { category: user.category[4] },
       ],
     }).sort({ date: -1 });
 
