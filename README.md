@@ -1,5 +1,6 @@
 <p align="center">
 
+<img src="https://user-images.githubusercontent.com/78967360/164875975-23667383-a99a-4f2b-8044-f3ed3af1e118.png" width="100%">
 
    <h3 align="center">Quesly</h3>
    <p align="center">Solving queries just a click away</p>
@@ -81,9 +82,7 @@ npm run server
 `/pay user_name amount`
 
 <br />
+<img src="./images/command.png" width="300px"> -->
 
 
-## Our Team
-
-![QUESLY2](https://user-images.githubusercontent.com/78967360/164879029-2afdeccd-ab09-468b-9417-7a61a0200784.png)
 
